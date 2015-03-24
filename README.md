@@ -6,6 +6,8 @@ R function to plot the (spline smoothed) exposure in a Cox proportional hazard m
 ### Description
 The function takes as input the results of a Cox proportional hazard model and plots a continuous exposure against the hazard ratio. The continuous exposure must be a spline term for the smoothing function to work. It is up to you to create the sensible CoxPH model.
 
+Includes 95% confidence intervals and boxplot along x-axis to show data distribution.
+
 ### Inputs
 * x        :: {REQUIRED} vector of x-values (the primary exposure in the Cox model -- used with pspline() function)
 * fit		   :: {REQUIRED} CoxPH object -- fitted model
