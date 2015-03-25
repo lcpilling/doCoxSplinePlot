@@ -17,8 +17,17 @@ Includes 95% confidence intervals and boxplot along x-axis to show data distribu
 
 ### Example
 ```
+## get data
+data <- na.omit( data.frame( age_death,          # vector of ages at death for each participant
+                             dead,               # binary variable [0=alive, 1=dead]
+                             age,                # age at measurement of risk factor (optional cofactor)
+                             sex,                # sex of participant (optional cofactor)
+                             smokes,             # smoking status of participant (optional cofactor)
+                             albumin             # numeric vector: the risk factor you are assessing
+                           ) )
+
 ## create the 'survival object'
-surv.death <- na.omit( Surv(data$age_death , data$dead) )
+surv.death <- Surv(data$age_death , data$dead)
 
 ## do Cox model -- can include cofactors if desired -- primary independent variable (exposure of interest) must be pspline()
 pham.fit <- coxph( surv.death ~ pspline(data$albumin, df=4) + data$age + data$sex + as.factor(data$smokes) )
