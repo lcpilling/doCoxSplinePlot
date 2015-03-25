@@ -9,11 +9,13 @@ The function takes as input the results of a Cox proportional hazard model and p
 Includes 95% confidence intervals and boxplot along x-axis to show data distribution.
 
 ### Inputs
-* x        :: {REQUIRED} vector of x-values (the primary exposure in the Cox model -- used with pspline() function)
-* fit		   :: {REQUIRED} CoxPH object -- fitted model
-* x.lab		 :: {REQUIRED} label for x-axis, e.g. "Serum albumin (g/dL)" - whatever your exposure is
-* title    :: {REQUIRED} title for the plot
-* subtitle :: {optional} additional subtitle
+```
+# x :: {REQUIRED} vector of x-values (the primary exposure in the Cox model -- used with pspline() function)
+# fit :: {REQUIRED} CoxPH object -- fitted model
+# x.lab :: {REQUIRED} label for x-axis, e.g. "Serum albumin (g/dL)" - whatever your exposure is
+# title :: {REQUIRED} title for the plot
+# subtitle :: {optional} additional subtitle
+```
 
 ### Example
 ```
@@ -33,11 +35,11 @@ surv.death <- Surv(data$age_death , data$dead)
 pham.fit <- coxph( surv.death ~ pspline(data$albumin, df=4) + data$age + data$sex + as.factor(data$smokes) )
 
 ## use doCoxSplinePlot() to plot the smoothed curve (including CI's) for the Cox model
-doCoxSplinePlot(x=data$albumin, 
-                fit=pham.fit, 
-                x.lab="Albumin (g/dL)", 
-                title="Circulating albumin and mortality risk",
-                subtitle="CoxPH model adjusted for age, sex and smokes, with 95% CIs")
+doCoxSplinePlot(x        = data$albumin, 
+                fit      = pham.fit, 
+                x.lab    = "Albumin (g/dL)", 
+                title    = "Circulating albumin and mortality risk",
+                subtitle = "CoxPH model adjusted for age, sex and smokes, with 95% CIs")
 
 ```
 ![](http://s22.postimg.org/vr887q00x/Albumin_mortality_risk.png)
