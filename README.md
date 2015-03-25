@@ -17,13 +17,13 @@ Includes 95% confidence intervals and boxplot along x-axis to show data distribu
 
 ### Example
 ```
-## get data
-data <- na.omit( data.frame( age_death,          # vector of ages at death for each participant
-                             dead,               # binary variable [0=alive, 1=dead]
-                             age,                # age at measurement of risk factor (optional cofactor)
-                             sex,                # sex of participant (optional cofactor)
-                             smokes,             # smoking status of participant (optional cofactor)
+## get data, exclude missings
+data <- na.omit( data.frame( dead,               # numeric vector: binary [0=alive, 1=dead]
+                             age_death,          # numeric vector: age at death for each participant
                              albumin             # numeric vector: the risk factor you are assessing
+                             age,                # numeric vector: age at measurement of risk factor (optional cofactor)
+                             sex,                # numeric vector: sex of participant (optional cofactor)
+                             smokes              # numeric vector: smoking status of participant (optional cofactor)
                            ) )
 
 ## create the 'survival object'
