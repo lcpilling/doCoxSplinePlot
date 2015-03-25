@@ -28,7 +28,8 @@ data <- na.omit( data.frame( dead,       # numeric vector: binary [0=alive, 1=de
                              smokes      # numeric vector: smoking status of participant (cofactor)
                            ) )
 
-## create the 'survival object'
+## create the 'survival object' -- load survival package
+require(survival)
 surv.death <- Surv(data$age_death , data$dead)
 
 ## do Cox model -- can include cofactors if desired
