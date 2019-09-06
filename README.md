@@ -8,14 +8,40 @@ The function takes as input the results of a Cox proportional hazard model and p
 
 Includes 95% confidence intervals and boxplot along x-axis to show data distribution.
 
-### Inputs
+### Essential inputs
 ```
-# x        {REQUIRED} vector of x-values (the risk factor)
-# fit      {REQUIRED} CoxPH object -- fitted model of x against mortality
-# x.lab    {REQUIRED} label for x-axis, e.g. "Serum albumin (g/dL)"
-# title    {REQUIRED} title for the plot
-# subtitle {optional} additional subtitle
+# x        vector of x-values (the risk factor)
+# fit      CoxPH object -- fitted model of x against mortality
+# x.lab    label for x-axis, e.g. "Serum albumin (g/dL)"
+# title    title for the plot
 ```
+
+### Optional inputs for customisation of plot
+```
+# subtitle        additional subtitle
+# returnValues    return a data.frame of the x and y values (default is FALSE)
+# legendPos       default is NO results legend. Specify "topleft" or similar to show the results on the plot
+# distBoxPlot     show bowplot of distribution? Default is FALSE
+# yMax            manually set the y-axis maximum? (minimum always 0)
+# xLims           manually set the x-axis limits? (needs to be a vector of length 2 - min or max can be NULL)
+# bg_box_col      specific background colour of plot (default = grey98)
+# null_line_type  horizontal reference line type (default = 2)
+# null_line_col   horizontal reference line colour (default = grey60)
+# null_line_wd    horizontal reference line width (default = 1.5)
+# h_lines_pos     vector of y axis positions for grid lines if desired (default = NULL)
+# h_lines_type    type of lines for y axis (default = 2)
+# h_lines_col     colour of lines for y axis (default = grey60)
+# h_lines_wd      width of lines for y axis (default = 1)
+# v_lines_pos     vector of x axis positions for grid lines if desired (default = NULL)
+# v_lines_type    type of lines for x axis (default = 2)
+# v_lines_col     colour of lines for x axis (default = grey60)
+# v_lines_wd      width of lines for x axis (default = 1)
+# ...             other plot options (e.g. cex)
+```
+
+### Depends upon packages
+- survival
+- pspline
 
 ### Example
 ```
