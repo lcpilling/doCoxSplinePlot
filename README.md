@@ -71,4 +71,4 @@ doCoxSplinePlot(x        = data$albumin,
                 subtitle = "CoxPH model adjusted for age, sex and smokes, with 95% CIs")
 
 ```
-![](http://s22.postimg.org/vr887q00x/Albumin_mortality_risk.png)
+![](https://github.com/lukepilling/doCoxSplinePlot/blob/master/I0wQG.png)
